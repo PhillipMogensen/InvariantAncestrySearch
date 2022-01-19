@@ -16,10 +16,6 @@ plt.rc('font', **font)
 bins = 10
 ################################################################################
 
-filenames = [
-    join('output/finite_experiment/', f) for f in listdir('output/finite_experiment/') if isfile(join('output/finite_experiment/', f)) and '.svg' not in f
-]
-
 def MakeHistogram(ax, file, yvariable):
     database = shelve.open(file)
     data = database['data']

@@ -23,7 +23,7 @@ B_G_small = 50000  # Samples per. combination in the small-dimension study
 
 ######## Plots for large graphs ########
 colors = ["#F8766D", "#00BFC4"]
-fig, ax = plt.subplots(1, 2, dpi = 300, sharex = 'all', sharey = 'all')
+fig, ax = plt.subplots(1, 2, dpi = 300, sharex = 'all', sharey = 'all', figsize = (8.5, 4))
 xval01 = d_large[(d_large['d'] == 100) & (d_large['MaxSize'] == 2)]['Nint'] / 100 * 100
 xval02 = d_large[(d_large['d'] == 100) & (d_large['MaxSize'] == 1)]['Nint'] / 100 * 100
 xval03 = d_large[(d_large['d'] == 100) & (d_large['MaxSize'] == 2)]['Nint'] / 100 * 100
@@ -100,7 +100,7 @@ fig.savefig('output/population_experiment/fig_large.svg')
 # colors = ["#F8766D", "#A3A500", "#00BF7D", "#00B0F6", "#E76BF3"]
 colors = ["#F8766D", "#D39200", "#93AA00", "#00BA38", "#00C19F", "#00B9E3", "#619CFF", "#DB72FB","#FF61C3"]
 ds = [4, 6, 8, 10, 12, 14, 16, 18, 20]
-fig, ax = plt.subplots(1, 2, dpi = 300, sharex = 'all', sharey = 'all')
+fig, ax = plt.subplots(1, 2, dpi = 300, sharex = 'all', sharey = 'all', figsize = (8.5, 4))
 for j, ax_ in enumerate(ax):
     p_ = 'sparse' if j == 0 else 'dense'
     for i, d in enumerate(ds):
