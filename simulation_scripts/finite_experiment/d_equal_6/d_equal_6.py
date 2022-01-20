@@ -5,20 +5,20 @@ from InvariantAncestrySearch.IASfunctions import *
 
 ########################################## Global parameters ##########################################
 num_predictors = 6  # Number predictors (i.e., variables different from E and Y)
-num_interventions = lambda: random.choice([1])  # samples the number of interventions in each graph
+num_interventions = lambda: 1  # samples the number of interventions in each graph
 p_connection = 2 / num_predictors  # Probability of any single edge being present in the graph
 B_G = 100  # Number of graphs to sample
 B_d = 50   # Number of datasets to sample per graph
 Nseq = [100, 1000, 10000, 100000] #, 100000]  # Sequence of sample sizes to try
 
 alpha_0  = 10**(-6)        # Level to test the empty set at
-alpha_   = 0.05 * 2**6 / 8 # Level to test remaining sets at. (we test at 0.05 / 8, but multiply by 2**6, because the test ExhaustiveSearch tests at level alpha / 2**d)
+alpha_   = 0.05 * 2**6 / 9   # Level to test remaining sets at. (we test at 0.05 / 9, but multiply by 2**6, because the test ExhaustiveSearch tests at level alpha / 2**d)
 #########################################################################################################
 
 objlist = []
 for i in range(B_G):  # Generates B_G objects to sample data from
     objlist.append(DataGenerator(
-        d = num_predictors, N_interventions = num_interventions(), p_conn = p_connection
+        d = num_predictors, N_interventions = num_interventions(), p_conn = p_connection, InterventionStrength = 1
     ))
     objlist[i].SampleDAG()
     objlist[i].BuildCoefMatrix()
@@ -116,7 +116,7 @@ data['i'] = np.repeat(range(B_G), len(Nseq))
 # data.groupby('N')[['Plevel', 'Pempty', 'PlevelICP', 'PemptyICP', 'FPR']].agg('mean')
 # data['Plevel'].transform(lambda x: x >= alpha_).groupby(data['N']).agg('mean')
 
-database = shelve.open('output/finite_experiment/d_equal_6/alpha0_equal_10Eminus6')  # Change file name according to value of alpha_0
+database = shelve.open('output/finite_experiment/d_equal_6/alpha0_equal_10Eminus6_9Correction')  # Change file name according to value of alpha_0
 database['data'] = data
 database['raw_results'] = res
 database['objlist'] = objlist

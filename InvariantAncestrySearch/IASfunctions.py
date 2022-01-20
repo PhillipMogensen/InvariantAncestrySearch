@@ -1,8 +1,8 @@
 #from sklearn.testing import ignore_warnings
 #from sklearn.exceptions import ConvergenceWarning
 from sklearn.linear_model import Lasso, LassoCV, lasso_path
-from pygam import LinearGAM, s
-from pygam.terms import TermList
+#from pygam import LinearGAM, s
+#from pygam.terms import TermList
 import numpy as np
 import networkx as nx
 import random
@@ -199,19 +199,6 @@ def ExhaustiveSearch(E, X, Y, alpha, alpha0 = None):
     
     return out_Adjust
 
-#@ignore_warnings(category=ConvergenceWarning)
-# def EstimateMarkovBoundary(X, Y, CV = True):
-#     if CV:
-#         m = LassoCV(n_alphas=50, fit_intercept=False, cv = 3, tol = 0.01).fit(X, Y)
-#     else:
-#         m = Lasso(alpha = 0.5, fit_intercept=False).fit(X, Y)
-#     NonZero = np.sum(np.abs(m.coef_) > 0)
-#     if NonZero <= 10:
-#         out = np.where(np.abs(m.coef_) > 0)[0].tolist()
-#     else:
-#         out = np.argsort(np.abs(m.coef_))[-10:]
-
-#     return out
 def getblanket(X, Y):
     c = lasso_path(X, Y, n_alphas = 100, tol = 0.01)[1]
     cz = np.apply_along_axis(np.sum, 0, c != 0)

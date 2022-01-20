@@ -1,7 +1,7 @@
 import numpy as np
 import networkx as nx
 import random
-from scipy.interpolate import splrep, BSpline
+# from scipy.interpolate import splrep, BSpline
 
 class DataGenerator(object):
     def __init__(self, d, N_interventions, p_conn, InterventionStrength = 1):

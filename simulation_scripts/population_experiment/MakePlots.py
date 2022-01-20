@@ -14,7 +14,7 @@ db2.close()
 ########################## Plot parameters #####################################
 plt.rc('text', usetex=True)
 plt.rc('text.latex', preamble=r'\usepackage{amsmath,amssymb}')
-font = {'size': 12}
+font = {'size': 14}
 plt.rc('font', **font)
 
 B_G_large = 10000  # Samples per. combination in the large-dimension study
@@ -127,6 +127,6 @@ ax[0].legend(loc = 'upper right', ncol = 2, prop={'size': 10})
 #ax[1].legend()
 ax[0].set_title(r'Sparse graphs')
 ax[1].set_title(r'Dense graphs')
-fig.supxlabel(r'Proportion of predictors intervened on (\%)')
+fig.supxlabel(r'Proportion of predictors intervened on (\%)', labelpad = 10)
 fig.supylabel(r'$\mathbb{P}_n(S_{\operatorname{ICP}} \subsetneq S_{\operatorname{IAS}}) $')
 fig.savefig('output/population_experiment/fig_small.svg')
