@@ -4,11 +4,12 @@ import random
 from scipy.interpolate import splrep, BSpline
 
 class DataGenerator(object):
-    def __init__(self, d, N_interventions, p_conn):
+    def __init__(self, d, N_interventions, p_conn, InterventionStrength = 1):
         self.d = d								# Number of predictor nodes
         self.N_interventions = N_interventions  # Number of nodes to intervene on
         self.p_conn = p_conn					# Probability of connecting to edges in the graph of (X, Y)
         self.sd = 1
+        self.InterventionStrength = InterventionStrength
  
 
     def SampleDAG(self):
@@ -88,6 +89,7 @@ class DataGenerator(object):
         CoefficientMatrix = self.CM 
         sd = self.sd
         noise = lambda n: np.random.normal(0, 1, n)
+        InterventionStrength = self.InterventionStrength
 
         d = g.order()
         A = np.array(nx.linalg.adjacency_matrix(g).todense())
@@ -108,7 +110,7 @@ class DataGenerator(object):
                         tmp += CoefficientMatrix[j, i] * X[:, j]
                     tmp2 = tmp + noise(N)
                     tmp2 *= 1 / np.std(tmp2)
-                    X[:, i] += (E == 0) * (tmp2) + (E == 1) * 1
+                    X[:, i] += (E == 0) * (tmp2) + (E == 1) * InterventionStrength
                 else:  # Remaning nodes
                     tmp = 0
                     for j in parents:
