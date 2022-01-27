@@ -1,4 +1,3 @@
-from types import new_class
 import pandas as pd
 import shelve
 from InvariantAncestrySearch.IASfunctions import *

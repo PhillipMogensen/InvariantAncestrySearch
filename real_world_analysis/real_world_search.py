@@ -2,7 +2,7 @@ import numpy as np
 from scipy.stats import ttest_ind, bartlett
 from sklearn.linear_model import LinearRegression
 from multiprocess import Pool, cpu_count
-from torch import outer
+# from torch import outer
 from tqdm import tqdm
 from sklearn.ensemble import GradientBoostingRegressor
 import pandas as pd
