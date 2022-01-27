@@ -5,3 +5,5 @@ networkx
 rpy2
 scikit-learn
 tqdm
+matplotlib
+seaborn
