@@ -17,7 +17,7 @@ plt.rc('text.latex', preamble=r'\usepackage{amsmath,amssymb}')
 font = {'size': 14}
 plt.rc('font', **font)
 
-B_G_large = 10000  # Samples per. combination in the large-dimension study
+B_G_large = 50000  # Samples per. combination in the large-dimension study
 B_G_small = 50000  # Samples per. combination in the small-dimension study
 ################################################################################
 

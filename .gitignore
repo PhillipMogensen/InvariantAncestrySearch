@@ -1,3 +1,9 @@
 
 InvariantAncestrySearch/tmp_DELETE/tmp.py
 *.svg
+*.pyc
+*.pyc
+real_world_analysis/data/KemmerenInt.csv
+real_world_analysis/data/KemmerenIntPos.csv
+real_world_analysis/data/KemmerenObs.csv
+real_world_analysis/saved_results.pkl
