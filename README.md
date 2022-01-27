@@ -8,14 +8,12 @@ The repository is structured in the following manner:
   ```{python}
   from InvariantAncestrySearch import DataGenerator
   
-  # One SCM
-  SCM1 = DataGenerator(d = 10, N_interventions = 5, p_conn = 2 / 10, InterventionStrength = 1)
+  SCM1 = DataGenerator(d = 10, N_interventions = 5, p_conn = 2 / 10, InterventionStrength = 1) # This is an SCM generator
   SCM1.SampleDAG()  # Generates a DAG with d = 10 predictor nodes, 5 interventions and roughly d + 1 edges between the (d + 1)-sized subgraph of (X, Y)
   SCM1.BuildCoefMatrix  # Samples coefficients for the linear assignments -- interventions have strength 1
   data1 = SCM1.MakeData(100)  # Generates 100 samples from SCM1
   
-  # Another SCM
-  SCM2 = DataGenerator(d = 6, N_interventions = 1, p_conn = 2 / 6, InterventionStrength = 0.5)
+  SCM2 = DataGenerator(d = 6, N_interventions = 1, p_conn = 2 / 6, InterventionStrength = 0.5) # And this is also an SCM generator
   SCM2.SampleDAG()  # Generates a DAG with d = 6 predictor nodes, 1 intervention and roughly d + 1 edges between the (d + 1)-sized subgraph of (X, Y)
   SCM2.BuildCoefMatrix  # Samples coefficients for the linear assignments -- interventions have strength 1
   data2 = SCM2.MakeData(1000)  # Generates 1000 samples from SCM2
