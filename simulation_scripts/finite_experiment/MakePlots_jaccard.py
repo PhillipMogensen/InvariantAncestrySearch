@@ -76,7 +76,8 @@ for ax in g.axes.flat:
                 rotation=0)
         # Remove the original text
         ax.texts[0].remove()
-g.savefig('output/finite_experiment/figures/jaccard_fig_main.svg', dpi = 600)
+# g.savefig('output/finite_experiment/figures/jaccard_fig_main.svg', dpi = 600)
+g.savefig('output/finite_experiment/figures/jaccard_fig_main.pdf', dpi = 600)
 
 
 #################### Graphs per window ####################
@@ -124,7 +125,8 @@ for ax in g.axes.flat:
                 rotation=0)
         # Remove the original text
         ax.texts[0].remove()
-g.savefig('output/finite_experiment/figures/jaccard_fig_main_Repeat_StandardCorrection.svg', dpi = 600)
+# g.savefig('output/finite_experiment/figures/jaccard_fig_main_Repeat_StandardCorrection.svg', dpi = 600)
+g.savefig('output/finite_experiment/figures/jaccard_fig_main_Repeat_StandardCorrection.pdf', dpi = 600)
 
 
 #################### Graphs per window ####################
@@ -173,7 +175,8 @@ for ax in g.axes.flat:
                 rotation=0)
         # Remove the original text
         ax.texts[0].remove()
-g.savefig('output/finite_experiment/figures/jaccard_fig_WeakInstruments.svg', dpi = 600)
+# g.savefig('output/finite_experiment/figures/jaccard_fig_WeakInstruments.svg', dpi = 600)
+g.savefig('output/finite_experiment/figures/jaccard_fig_WeakInstruments.pdf', dpi = 600)
 
 
 #################### Graphs per window ####################

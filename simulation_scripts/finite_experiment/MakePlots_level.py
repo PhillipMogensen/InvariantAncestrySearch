@@ -76,7 +76,8 @@ ax1[1].set_ylabel(r'$\mathbb{P}_n(\hat{S}_{\operatorname{IAS}}^1 \subseteq \oper
 ax2[0].set_ylabel(r'$\mathbb{P}_n(\hat{S}_{\operatorname{IAS}}   = \emptyset)$')
 ax2[1].set_ylabel(r'$\mathbb{P}_n(\hat{S}_{\operatorname{IAS}}^1 = \emptyset)$')
 fig.tight_layout()
-fig.savefig('output/finite_experiment/figures/boxplot_appendix_minus6.svg')
+# fig.savefig('output/finite_experiment/figures/boxplot_appendix_minus6.svg')
+fig.savefig('output/finite_experiment/figures/boxplot_appendix_minus6.pdf')
 
 
 ## alpha0 = 10e-12
@@ -93,7 +94,8 @@ ax1[1].set_ylabel(r'$\mathbb{P}_n(\hat{S}_{\operatorname{IAS}}^1 \subseteq \oper
 ax2[0].set_ylabel(r'$\mathbb{P}_n(\hat{S}_{\operatorname{IAS}}   = \emptyset)$')
 ax2[1].set_ylabel(r'$\mathbb{P}_n(\hat{S}_{\operatorname{IAS}}^1 = \emptyset)$')
 fig.tight_layout()
-fig.savefig('output/finite_experiment/figures/boxplot_appendix_minus12.svg')
+# fig.savefig('output/finite_experiment/figures/boxplot_appendix_minus12.svg')
+fig.savefig('output/finite_experiment/figures/boxplot_appendix_minus12.pdf')
 
 ## alpha0 = alpha
 fig, (ax1, ax2) = plt.subplots(2, 2, sharex = 'all', sharey = 'all')
@@ -109,4 +111,5 @@ ax1[1].set_ylabel(r'$\mathbb{P}_n(\hat{S}_{\operatorname{IAS}}^1 \subseteq \oper
 ax2[0].set_ylabel(r'$\mathbb{P}_n(\hat{S}_{\operatorname{IAS}}   = \emptyset)$')
 ax2[1].set_ylabel(r'$\mathbb{P}_n(\hat{S}_{\operatorname{IAS}}^1 = \emptyset)$')
 fig.tight_layout()
-fig.savefig('output/finite_experiment/figures/boxplot_appendix_None.svg')
+# fig.savefig('output/finite_experiment/figures/boxplot_appendix_None.svg')
+fig.savefig('output/finite_experiment/figures/boxplot_appendix_None.pdf')

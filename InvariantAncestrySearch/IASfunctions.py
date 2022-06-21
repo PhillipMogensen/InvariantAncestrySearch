@@ -1,5 +1,6 @@
 #from sklearn.testing import ignore_warnings
 #from sklearn.exceptions import ConvergenceWarning
+import itertools
 from sklearn.linear_model import Lasso, LassoCV, lasso_path
 #from pygam import LinearGAM, s
 #from pygam.terms import TermList
@@ -196,6 +197,30 @@ def ExhaustiveSearch(E, X, Y, alpha, alpha0 = None):
         pval = JP_test(E, X, Y, list(x))
         if pval >= (alpha / AdjustFactor):
             out_Adjust.append(set(x))
+    
+    return out_Adjust
+
+def CleverSearch(E, X, Y, alpha, alpha0 = None):
+    d = X.shape[1]
+    out_Adjust = []
+    AdjustFactor = 2**d
+    if alpha0 is None:
+        alpha0 = alpha / AdjustFactor
+
+    EmptyInvariant = JP_test(E, X, Y, None) >= alpha0
+    if EmptyInvariant:
+        return set()
+    
+    RemainingAtoms = set(i for i in range(d))
+
+    for i in range(d):
+        for x in combinations(RemainingAtoms, i + 1):
+            pval = JP_test(E, X, Y, list(x))
+            if pval >= (alpha / AdjustFactor):
+                out_Adjust.append(set(x))
+                RemainingAtoms = RemainingAtoms - set(x)
+                if len(RemainingAtoms) == 0:
+                    return out_Adjust
     
     return out_Adjust
 

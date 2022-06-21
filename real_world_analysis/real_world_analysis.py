@@ -1,5 +1,5 @@
 import pandas as pd
-from real_world_search import is_true_positive, test_gene
+from real_world_analysis.real_world_search import is_true_positive, test_gene
 import numpy as np
 from scipy.stats.stats import pearsonr  
 import matplotlib.pyplot as plt
@@ -13,7 +13,8 @@ plt.rc('font', **font)
 
 #### Loading of data ####
 observation, intervention, intervention_pos = (np.genfromtxt(
-    f'data/study4_gene_expression/Kemmeren{spec}.csv', delimiter='\t', skip_header=1
+    # f'data/study4_gene_expression/Kemmeren{spec}.csv', delimiter='\t', skip_header=1
+    f'real_world_analysis/data/Kemmeren{spec}.csv', delimiter='\t', skip_header=1
   ) for spec in ['Obs', 'Int', 'IntPos']
 )
 # Fix indentation starting at 1
@@ -24,7 +25,8 @@ def random_guess_rate(true_pos_cut):
          np.mean(intervention > np.quantile(observation, 1-true_pos_cut, axis=0))
 
 # Load data
-results = pd.read_pickle(f"output/study4_gene_expression/saved_results.pkl")
+# results = pd.read_pickle(f"output/study4_gene_expression/saved_results.pkl")
+results = pd.read_pickle(f"real_world_analysis/saved_results.pkl")
 
 # Hyperparameters
 true_pos_cut = 0.025
@@ -93,8 +95,9 @@ ax[0].legend(lines, [l.get_label() for l in lines], loc = 4, prop={'size': 11})
 
 
 # fig.supylabel(r'True positive rate')
-fig.savefig('output/study4_gene_expression/fig_genes.svg')
-plt.show()
+# fig.savefig('output/study4_gene_expression/fig_genes.svg')
+fig.savefig('output/real_world_analysis/fig_genes.pdf')
+# plt.show()
 
 
 fig, ax = plt.subplots()
@@ -122,5 +125,6 @@ ax.legend(loc = 'lower right', prop={'size': 14})
 ax.set_title(r'Varying $q_{TP}$')
 ax.set_xlabel(r'$q_{TP}$')
 ax.set_ylabel(r'True positive rate')
-fig.savefig('output/study4_gene_expression/fig_TPRs.svg')
-plt.show()
+# fig.savefig('output/study4_gene_expression/fig_TPRs.svg')
+fig.savefig('output/real_world_analysis/fig_TPRs.pdf')
+# plt.show()

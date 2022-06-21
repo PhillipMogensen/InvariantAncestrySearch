@@ -93,14 +93,15 @@ fig.supxlabel(r'Proportion of predictors intervened on (\%)')
 fig.supylabel(r'Average size of oracle set')
 fig.tight_layout()
 #fig.subplots_adjust(top = 1.1, bottom = 0.1)
-fig.savefig('output/population_experiment/fig_large.svg')
+# fig.savefig('output/population_experiment/fig_large.svg')
+fig.savefig('output/population_experiment/fig_large.pdf')
 
 
 ######## Plots for small graphs ########
 # colors = ["#F8766D", "#A3A500", "#00BF7D", "#00B0F6", "#E76BF3"]
 colors = ["#F8766D", "#D39200", "#93AA00", "#00BA38", "#00C19F", "#00B9E3", "#619CFF", "#DB72FB","#FF61C3"]
 ds = [4, 6, 8, 10, 12, 14, 16, 18, 20]
-fig, ax = plt.subplots(1, 2, dpi = 300, sharex = 'all', sharey = 'all', figsize = (8.5, 4))
+fig, ax = plt.subplots(1, 2, dpi = 300, sharex = 'all', sharey = 'all', figsize = (8.5, 4.5))
 for j, ax_ in enumerate(ax):
     p_ = 'sparse' if j == 0 else 'dense'
     for i, d in enumerate(ds):
@@ -123,10 +124,12 @@ for j, ax_ in enumerate(ax):
         )
 ax[0].set_xticks([(i + 1) / 10 * 100 for i in range(0, 10, 2)])
 ax[1].set_xticks([(i + 1) / 10 * 100 for i in range(0, 10, 2)])
-ax[0].legend(loc = 'upper right', ncol = 2, prop={'size': 10})
+ax[0].legend(loc = 'upper right', ncol = 2)
 #ax[1].legend()
 ax[0].set_title(r'Sparse graphs')
 ax[1].set_title(r'Dense graphs')
-fig.supxlabel(r'Proportion of predictors intervened on (\%)', labelpad = 10)
+fig.supxlabel(r'Proportion of predictors intervened on (\%)') #, labelpad = 10)
 fig.supylabel(r'$\mathbb{P}_n(S_{\operatorname{ICP}} \subsetneq S_{\operatorname{IAS}}) $')
-fig.savefig('output/population_experiment/fig_small.svg')
+fig.tight_layout()
+# fig.savefig('output/population_experiment/fig_small.svg')
+fig.savefig('output/population_experiment/fig_small.pdf')

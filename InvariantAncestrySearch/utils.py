@@ -111,7 +111,7 @@ class DataGenerator(object):
                     tmp2 = tmp + noise(N)
                     tmp2 *= 1 / np.std(tmp2)
                     X[:, i] += (E == 0) * (tmp2) + (E == 1) * InterventionStrength
-                else:  # Remaning nodes
+                else:  # Remaining nodes
                     tmp = 0
                     for j in parents:
                         tmp += CoefficientMatrix[j, i] * X[:, j]
